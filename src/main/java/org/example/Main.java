@@ -2,18 +2,18 @@ package org.example;
 
 
 interface MovableStrategy{
-    public void move();
+    void move();
 }
 
-class RailLoadStrategy implements MovableStrategy{
+class RailRoadStrategy implements MovableStrategy{
     public void move(){
-        System.out.println("선로 따라 이동");
+        System.out.println("Rail");
     }
 }
 
-class LoadStrategy implements MovableStrategy{
+class RoadStrategy implements MovableStrategy{
     public void move(){
-        System.out.println("도로 따라 이동");
+        System.out.println("Road");
     }
 }
 
@@ -42,14 +42,14 @@ public class Main {
         Moving train = new Train();
         Moving bus = new Bus();
 
-        train.setMovableStrategy(new RailLoadStrategy());
-        bus.setMovableStrategy(new LoadStrategy());
+        train.setMovableStrategy(new RailRoadStrategy());
+        bus.setMovableStrategy(new RoadStrategy());
 
         train.move();
         bus.move();
 
         //선로를 움직이는 버스
-        bus.setMovableStrategy(new RailLoadStrategy());
+        bus.setMovableStrategy(new RailRoadStrategy());
         bus.move();
     }
 }
